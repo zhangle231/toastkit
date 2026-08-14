@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: f4ff5be3e1f50ff475cd88e8c986c75f_02ee4fe9979211f1b995525400e6dd8f
+    ReservedCode1: 41RAHWYZiH1rciCP3eCOlL5EZbr3cqh+qUin2Y+7hvic4qh8IoTbuTO1+gFfdZFgoXxAKJfiNCAE3zgOyyMxKyu8qTSHc3TwupHviZFLeVClfuU1NYwLQ3pJKiW55JQndREbtMMs/s8JZT2hte+QVudZMkLDeFWJiVoZYR2fnenb3kLpYDnrZGzbX0A=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: f4ff5be3e1f50ff475cd88e8c986c75f_02ee4fe9979211f1b995525400e6dd8f
+    ReservedCode2: 41RAHWYZiH1rciCP3eCOlL5EZbr3cqh+qUin2Y+7hvic4qh8IoTbuTO1+gFfdZFgoXxAKJfiNCAE3zgOyyMxKyu8qTSHc3TwupHviZFLeVClfuU1NYwLQ3pJKiW55JQndREbtMMs/s8JZT2hte+QVudZMkLDeFWJiVoZYR2fnenb3kLpYDnrZGzbX0A=
+---
+
 # ToastKit
 
 Windows 全功能富通知模板，基于原生 Toast XML，一行代码发送高定制化系统通知。
@@ -77,6 +88,40 @@ HKCU\Software\Classes\AppUserModelId\Marvis.Notification
 python toast_template.py
 ```
 
+## MCP 接口
+
+ToastKit 提供 MCP server，AI 客户端可通过 MCP 协议直接调用发送通知。
+
+### 启动
+
+```powershell
+python toast_mcp_server.py
+```
+
+### 工具
+
+- `send_toast_tool`：发送富通知，参数与模板字段一致（`actions_json` 为按钮列表 JSON 字符串）
+
+### 客户端配置示例（Claude Desktop）
+
+```json
+{
+  "mcpServers": {
+    "toastkit": {
+      "command": "python",
+      "args": ["D:/LEO/project/temp/toastkit/toast_mcp_server.py"]
+    }
+  }
+}
+```
+
+### 依赖
+
+```powershell
+pip install mcp winsdk
+```
+
 ## License
 
 MIT
+*（内容由AI生成，仅供参考）*
